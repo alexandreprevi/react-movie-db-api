@@ -14,6 +14,12 @@ const Header = () => {
         <Link to="/">
           <LogoImg src={CLAPLogo} alt="rmdb-logo" />
         </Link>
+        <Link to="/">
+          <p>Movies</p>
+        </Link>
+        <Link to="/person">
+          <p>People</p>
+        </Link>
         <TMDBLogoImg src={TMDBLogo} alt="tmdb-logo" />
       </Content>
     </Wrapper>

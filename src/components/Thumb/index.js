@@ -7,11 +7,11 @@ import PropTypes from "prop-types";
 // styles
 import { Image } from "./Thumb";
 
-const Thumb = ({ image, movieId, clickable, type }) => (
+const Thumb = ({ image, id, clickable, type }) => (
   <div>
     {clickable ? (
-      <Link to={`/movie/${movieId}`}>
-        <Image src={image} alt="movie-thumb" />
+      <Link to={`/${type}/${id}`}>
+        <Image src={image} alt={`${type}-thumb`} />
       </Link>
     ) : (
       <Image src={image} alt={`${type}-thumb`} />
@@ -21,7 +21,7 @@ const Thumb = ({ image, movieId, clickable, type }) => (
 
 Thumb.propTypes = {
   image: PropTypes.string,
-  movieId: PropTypes.number,
+  id: PropTypes.number,
   clickable: PropTypes.bool,
 };
 

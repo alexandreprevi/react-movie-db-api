@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Proptypes
 import PropTypes from "prop-types";
@@ -14,6 +15,7 @@ import { Wrapper, Content, Text } from "./PersonInfo.styles";
 
 // Components
 import Thumb from "../Thumb";
+import Button from "./../Button/index";
 
 const PersonInfo = ({ person }) => {
   return (
@@ -40,10 +42,24 @@ const PersonInfo = ({ person }) => {
           )}
           <h3>Popularity</h3>
           <p>{person.popularity}</p>
-          {person.biography.length > 1 && (
+          {person.biography && (
             <>
               <h3>Biography</h3>
               <p>{person.biography}</p>
+            </>
+          )}
+
+          {person.known_for && (
+            <>
+              <h3>Most known for:</h3>
+              <ul>
+                {person.known_for.map((movie) => (
+                  <li key={movie.id}>{movie.original_title}</li>
+                ))}
+              </ul>
+              <Link to={`/person/${person.id}`}>
+                <Button text="More info"></Button>
+              </Link>
             </>
           )}
         </Text>

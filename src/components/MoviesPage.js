@@ -38,18 +38,19 @@ const MoviesPage = () => {
           text={state.results[0].overview}
         />
       ) : null}
-      <SearchBar setSearchTerm={setSearchTerm} />
+      <SearchBar text="Search Movie" setSearchTerm={setSearchTerm} />
       <Grid header={searchTerm ? "Search Result" : "Popular Movies"}>
         {state.results.map((movie) => (
           <Thumb
             key={movie.id}
+            type="movie"
             clickable
             image={
               movie.poster_path
                 ? IMAGE_BASE_URL + POSTER_SIZE + movie.poster_path
                 : NoImage
             }
-            movieId={movie.id}
+            id={movie.id}
           />
         ))}
       </Grid>

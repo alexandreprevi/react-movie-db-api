@@ -32,6 +32,7 @@ const Person = () => {
       <Grid header="Movies">
         {person.personMovieCredits.cast.map((movie) => (
           <Thumb
+            type="movie"
             key={movie.id}
             clickable
             image={
@@ -39,7 +40,7 @@ const Person = () => {
                 ? IMAGE_BASE_URL + POSTER_SIZE + movie.poster_path
                 : NoImage
             }
-            movieId={movie.id}
+            id={movie.id}
           />
         ))}
       </Grid>

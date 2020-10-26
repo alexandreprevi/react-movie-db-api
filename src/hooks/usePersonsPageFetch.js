@@ -15,7 +15,7 @@ const initialState = {
 
 export const usePersonsPageFetch = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [state, setState] = useState("");
+  const [state, setState] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
