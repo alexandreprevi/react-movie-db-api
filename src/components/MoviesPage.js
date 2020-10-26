@@ -4,20 +4,20 @@ import React from "react";
 import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from "../config";
 
 // Hook
-import { useHomeFetch } from "./../hooks/useHomeFetch";
+import { useMoviesPageFetch } from "../hooks/useMoviesPageFetch";
 
 // Image
 import NoImage from "../images/no_image.jpg";
 
 // Components
-import HeroImage from "./HeroImage";
+import HeroImage from "./MovieHeroImage";
 import Grid from "./Grid";
-import MovieThumb from "./MovieThumb";
+import Thumb from "./Thumb";
 import Spinner from "./Spinner";
 import SearchBar from "./SearchBar/index";
 import Button from "./Button/index";
 
-const Home = () => {
+const MoviesPage = () => {
   const {
     state,
     loading,
@@ -25,7 +25,7 @@ const Home = () => {
     searchTerm,
     setSearchTerm,
     setLoadingMore,
-  } = useHomeFetch();
+  } = useMoviesPageFetch();
 
   if (error) return <div>Something went wrong...</div>;
 
@@ -41,7 +41,7 @@ const Home = () => {
       <SearchBar setSearchTerm={setSearchTerm} />
       <Grid header={searchTerm ? "Search Result" : "Popular Movies"}>
         {state.results.map((movie) => (
-          <MovieThumb
+          <Thumb
             key={movie.id}
             clickable
             image={
@@ -61,4 +61,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default MoviesPage;

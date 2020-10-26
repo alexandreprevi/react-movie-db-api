@@ -4,7 +4,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // styles
-import { Wrapper, Content, Text } from "./HeroImage.styles";
+import { Wrapper, Content, Text } from "./MovieHeroImage.styles";
 
 const HeroImage = ({ image, title, text }) => (
   <Wrapper image={image}>

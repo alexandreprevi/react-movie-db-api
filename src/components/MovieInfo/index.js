@@ -13,13 +13,14 @@ import NoImage from "../../images/no_image.jpg";
 import { Wrapper, Content, Text } from "./MovieInfo.styles";
 
 // Components
-import MovieThumb from "../MovieThumb";
+import Thumb from "../Thumb";
 
 const MovieInfo = ({ movie }) => {
   return (
     <Wrapper backdrop={movie.backdrop_path}>
       <Content>
-        <MovieThumb
+        <Thumb
+          type={"movie"}
           image={
             movie.poster_path
               ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`

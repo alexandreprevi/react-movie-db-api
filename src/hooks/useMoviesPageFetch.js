@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import API from "../API";
 
 // Helpers
-import { isPersistedState } from "./../helpers";
+import { isPersistedState } from "../helpers";
 
 const initialState = {
   page: 0,
@@ -13,7 +13,7 @@ const initialState = {
   total_results: 0,
 };
 
-export const useHomeFetch = () => {
+export const useMoviesPageFetch = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [state, setState] = useState(initialState);
   const [loading, setLoading] = useState(false);
@@ -44,7 +44,7 @@ export const useHomeFetch = () => {
   useEffect(() => {
     if (!searchTerm) {
       // Get from sessionStorage
-      const sessionState = isPersistedState("homePageState");
+      const sessionState = isPersistedState("moviePageState");
       if (sessionState) {
         console.log("Getting from Session Storage...");
         return setState(sessionState);
@@ -66,7 +66,7 @@ export const useHomeFetch = () => {
   // Set to sessionStorage
   useEffect(() => {
     if (!searchTerm)
-      sessionStorage.setItem("homePageState", JSON.stringify(state));
+      sessionStorage.setItem("moviePageState", JSON.stringify(state));
   }, [searchTerm, state]);
 
   return { state, loading, error, searchTerm, setSearchTerm, setLoadingMore };

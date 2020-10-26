@@ -1,6 +1,8 @@
 import {
   MOVIE_SEARCH_BASE_URL,
+  PERSON_SEARCH_BASE_URL,
   MOVIE_POPULAR_BASE_URL,
+  PERSON_POPULAR_BASE_URL,
   API_URL,
   API_KEY,
 } from "./config";
@@ -18,6 +20,12 @@ const apiSettings = {
   },
   fetchCredits: async (movieId) => {
     const endpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
+    return await (await fetch(endpoint)).json();
+  },
+  fetchPersons: async (searchTerm, page) => {
+    const endpoint = searchTerm
+      ? `${PERSON_SEARCH_BASE_URL}${searchTerm}&page=${page}`
+      : `${PERSON_POPULAR_BASE_URL}&page=${page}`;
     return await (await fetch(endpoint)).json();
   },
   fetchPerson: async (personId) => {

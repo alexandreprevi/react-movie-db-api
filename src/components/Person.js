@@ -12,7 +12,7 @@ import Grid from "./Grid";
 import Spinner from "./Spinner";
 import BreadCrumb from "./BreadCrumb";
 import PersonInfo from "./PersonInfo";
-import MovieThumb from "./MovieThumb";
+import Thumb from "./Thumb";
 import { IMAGE_BASE_URL, POSTER_SIZE } from "../config";
 
 const Person = () => {
@@ -31,7 +31,7 @@ const Person = () => {
       <PersonInfo person={person.person} />
       <Grid header="Movies">
         {person.personMovieCredits.cast.map((movie) => (
-          <MovieThumb
+          <Thumb
             key={movie.id}
             clickable
             image={
